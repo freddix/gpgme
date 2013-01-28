@@ -1,7 +1,7 @@
 Summary:	Library for accessing GnuPG
 Name:		gpgme
-Version:	1.2.0
-Release:	15
+Version:	1.3.2
+Release:	1
 Epoch:		1
 License:	LGPL v2.1+
 Group:		Libraries
@@ -11,9 +11,9 @@ Patch0:		%{name}-kill-tests.patch
 URL:		http://www.gnupg.org/gpgme.html
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libassuan-devel
 BuildRequires:	libgpg-error-devel
 BuildRequires:	libtool
-BuildRequires:	pth-devel
 BuildRequires:	texinfo
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -66,20 +66,16 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README ChangeLog THANKS TODO NEWS AUTHORS
-%attr(755,root,root) %ghost %{_libdir}/libgpgme-pth.so.??
 %attr(755,root,root) %ghost %{_libdir}/libgpgme-pthread.so.??
 %attr(755,root,root) %ghost %{_libdir}/libgpgme.so.??
-%attr(755,root,root) %{_libdir}/libgpgme-pth.so.*.*.*
 %attr(755,root,root) %{_libdir}/libgpgme-pthread.so.*.*.*
 %attr(755,root,root) %{_libdir}/libgpgme.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
 %attr(755,root,root) %{_bindir}/gpgme-config
-%attr(755,root,root) %{_libdir}/libgpgme-pth.so
 %attr(755,root,root) %{_libdir}/libgpgme-pthread.so
 %attr(755,root,root) %{_libdir}/libgpgme.so
-%{_libdir}/libgpgme-pth.la
 %{_libdir}/libgpgme-pthread.la
 %{_libdir}/libgpgme.la
 %{_includedir}/*.h
