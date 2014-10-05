@@ -1,12 +1,12 @@
 Summary:	Library for accessing GnuPG
 Name:		gpgme
-Version:	1.4.3
+Version:	1.5.1
 Release:	1
 Epoch:		1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.gnupg.org/gcrypt/gpgme/%{name}-%{version}.tar.bz2
-# Source0-md5:	334e524cffa8af4e2f43ae8afe585672
+# Source0-md5:	8fb46b336200807a12a12a5760b4a39d
 Patch0:		%{name}-kill-tests.patch
 URL:		http://www.gnupg.org/gpgme.html
 BuildRequires:	autoconf
@@ -24,6 +24,8 @@ A library for accessing GnuPG.
 Summary:	Header files for GPGME library
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	libassuan-devel
+Requires:	libgpg-error-devel
 
 %description devel
 Header files for GPGME library, needed for compiling programs using
@@ -51,6 +53,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/*.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -76,8 +80,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/gpgme-config
 %attr(755,root,root) %{_libdir}/libgpgme-pthread.so
 %attr(755,root,root) %{_libdir}/libgpgme.so
-%{_libdir}/libgpgme-pthread.la
-%{_libdir}/libgpgme.la
 %{_includedir}/*.h
 %{_aclocaldir}/*.m4
 %{_infodir}/*.info*
