@@ -1,12 +1,12 @@
 Summary:	Library for accessing GnuPG
 Name:		gpgme
-Version:	1.5.1
+Version:	1.5.3
 Release:	1
 Epoch:		1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.gnupg.org/gcrypt/gpgme/%{name}-%{version}.tar.bz2
-# Source0-md5:	8fb46b336200807a12a12a5760b4a39d
+# Source0-md5:	082ab2632e7f051f5c09bafd5c4bfacf
 Patch0:		%{name}-kill-tests.patch
 URL:		http://www.gnupg.org/gpgme.html
 BuildRequires:	autoconf
@@ -70,6 +70,7 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc README ChangeLog THANKS TODO NEWS AUTHORS
+%attr(755,root,root) %{_bindir}/gpgme-tool
 %attr(755,root,root) %ghost %{_libdir}/libgpgme-pthread.so.??
 %attr(755,root,root) %ghost %{_libdir}/libgpgme.so.??
 %attr(755,root,root) %{_libdir}/libgpgme-pthread.so.*.*.*
