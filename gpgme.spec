@@ -1,12 +1,13 @@
+# based on PLD Linux spec git://git.pld-linux.org/packages/gpgme.git
 Summary:	Library for accessing GnuPG
 Name:		gpgme
-Version:	1.5.3
+Version:	1.5.4
 Release:	1
 Epoch:		1
 License:	LGPL v2.1+
 Group:		Libraries
 Source0:	ftp://ftp.gnupg.org/gcrypt/gpgme/%{name}-%{version}.tar.bz2
-# Source0-md5:	082ab2632e7f051f5c09bafd5c4bfacf
+# Source0-md5:	feafa03ea064e1d1dc11bc2b88404623
 Patch0:		%{name}-kill-tests.patch
 URL:		http://www.gnupg.org/gpgme.html
 BuildRequires:	autoconf
